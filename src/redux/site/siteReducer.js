@@ -11,17 +11,30 @@ export default function siteReducer(state = initialStore, action) {
         case FETCH_SHOPPING_ITEMS_REQUEST:
             return {
                 ...state,
-                loading: true,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    loading: true
+                }
             };
+
         case FETCH_SHOPPING_ITEMS_SUCCESS:
             return {
                 ...state,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    loading: false,
+                    error: ''
+                }
             };
+
         case FETCH_SHOPPING_ITEMS_FAILURE:
             return {
                 ...state,
-                loading: false,
-                error: action.payload,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    loading: false,
+                    error: 'Error In Fetching Items'
+                }
             };
 
         default:

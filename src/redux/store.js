@@ -3,7 +3,16 @@ import thunk from "redux-thunk";
 import siteReducer from "./site/siteReducer";
 
 export const initialStore = {
-
+    shoppingItems: {
+        loading: false,
+        error: '',
+        items: [
+            {
+                name: 'Item1',
+                price: '$100'
+            }
+        ]
+    }
 };
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
