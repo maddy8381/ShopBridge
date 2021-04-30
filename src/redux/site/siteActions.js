@@ -102,3 +102,34 @@ export function addItem(itemObj) {
         dispatch(addItemFailure());
     };
 }
+
+
+
+const modifyItemRequest = () => {
+    return {
+        type: MODIFY_SHOPPING_ITEM_REQUEST,
+    };
+};
+
+const modifyItemSuccess = (updatedItemObj) => {
+    return {
+        type: MODIFY_SHOPPING_ITEM_SUCCESS,
+        payload: updatedItemObj,
+    };
+};
+
+const modifyItemFailure = (error) => {
+    return {
+        type: MODIFY_SHOPPING_ITEM_FAILURE,
+        payload: error,
+    };
+};
+
+export function modifyItem(updatedItemObj) {
+
+    return (dispatch) => {
+        dispatch(modifyItemRequest());
+        dispatch(modifyItemSuccess(updatedItemObj));
+        dispatch(modifyItemFailure());
+    };
+}

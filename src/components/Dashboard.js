@@ -19,9 +19,11 @@ function Dashboard(props) {
             <br />
             <hr />
             {
-                props.shoppingItemsList.map(item => (
-                    <Item key={item.id} item={item} />
-                ))
+                props.shoppingItemsList.length < 1
+                    ? <h1>No Items Found</h1>
+                    : props.shoppingItemsList.map(item => (
+                        <Item key={item.id} item={item} />
+                    ))
             }
         </Container>
     )

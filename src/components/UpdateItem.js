@@ -9,8 +9,8 @@ import {
     Paper,
     TextField
 } from '@material-ui/core'
-import { connect } from 'react-redux';
-import { addItem } from './../redux/site/siteActions'
+import { connect } from 'react-redux'
+import { modifyItem } from './../redux/site/siteActions'
 
 const getTodaysDate = () => {
     let monthNames = [
@@ -20,23 +20,20 @@ const getTodaysDate = () => {
 
     let today = new Date();
     let day = today.getDate();
-
     let monthIndex = today.getMonth();
     let monthName = monthNames[monthIndex];
-
     let year = today.getFullYear();
-
     return `${day} ${monthName} ${year}`;
 }
 
-const AddItemButton = (props) => {
-
+function UpdateItem(props) {
+    const { id, name, description, price } = props.item;
     const [open, setOpen] = useState(false);
     const [form, setFormValues] = useState({
-        id: 1,
-        name: '',
-        description: '',
-        price: '',
+        id: id,
+        name: name,
+        description: description,
+        price: price,
         dateModified: getTodaysDate()
     });
 
@@ -45,27 +42,13 @@ const AddItemButton = (props) => {
     };
 
     const handleClose = () => {
-        setFormValues({
-            id: 1,
-            name: '',
-            description: '',
-            price: '',
-            dateModified: getTodaysDate()
-        })
         setOpen(false);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.addItem(form);
+        props.modifyItem(form);
         setOpen(false); //close the form modal
-        setFormValues({
-            id: 1,
-            name: '',
-            description: '',
-            price: '',
-            dateModified: getTodaysDate()
-        })
     };
 
     const handleValueChange = (event) => {
@@ -77,14 +60,7 @@ const AddItemButton = (props) => {
 
     return (
         <React.Fragment>
-            <Button
-                variant="outlined"
-                color="primary"
-                onClick={handleClickOpen}
-            >
-                Add Item
-            </Button>
-
+            <Button className="fa fa-edit pr-1" onClick={handleClickOpen}> Update Item</Button>
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -92,7 +68,7 @@ const AddItemButton = (props) => {
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
             >
-                <DialogTitle id="scroll-dialog-title">Add Item</DialogTitle>
+                <DialogTitle id="scroll-dialog-title">Update Item</DialogTitle>
                 <DialogContent >
                     <Grid container justify="space-around" spacing={1} style={{ width: '500px' }}>
                         <Paper style={{ width: '490px', padding: '10px' }}>
@@ -137,16 +113,17 @@ const AddItemButton = (props) => {
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Cancel
-                    </Button>
+                </Button>
                     <Button onClick={(e) => handleSubmit(e)} color="primary">
                         Save
-                    </Button>
+                </Button>
                 </DialogActions>
             </Dialog>
         </React.Fragment>
 
     )
 }
+
 
 const mapStateToProps = (state) => {
     return {
@@ -156,8 +133,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addItem: (itemObj) => dispatch(addItem(itemObj))
-    };
+        modifyItem: (itemObj) => dispatch(modifyItem(itemObj))
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddItemButton);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateItem);
