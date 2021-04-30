@@ -21,7 +21,7 @@ function Item(props) {
                     <div className="col-lg-6 col-md-4 col-8">
                         <h3>{item.name}</h3>
                         <p>{item.description}</p>
-                        <h3>{item.price}</h3>
+                        <h3>${item.price}</h3>
                         <p>{item.dateModified}</p>
                     </div>
                     <div className="col-md-2 d-none d-lg-block">
