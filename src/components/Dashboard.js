@@ -18,14 +18,17 @@ function Dashboard(props) {
             <AddItemButton />
             <br />
             <hr />
-            {}
-            <Item />
+            {
+                props.shoppingItemsList.map(item => (
+
+                    <Item key={item.id} item={item} />
+                ))
+            }
         </Container>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.shoppingItems.items[0].name);
     return {
         shoppingItemsList: state.shoppingItems.items
     };
