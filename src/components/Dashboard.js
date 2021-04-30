@@ -20,7 +20,6 @@ function Dashboard(props) {
             <hr />
             {
                 props.shoppingItemsList.map(item => (
-
                     <Item key={item.id} item={item} />
                 ))
             }

@@ -78,6 +78,38 @@ export default function siteReducer(state = initialStore, action) {
                 }
             };
 
+        case ADD_SHOPPING_ITEM_REQUEST:
+            return {
+                ...state,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    loading: true
+                }
+            };
+
+        case ADD_SHOPPING_ITEM_SUCCESS:
+            action.payload.id = state.counter + 1;
+            return {
+                ...state,
+                counter: state.counter + 1,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    items: [action.payload, ...state.shoppingItems.items],
+                    loading: false,
+                    error: ''
+                }
+            };
+
+        case ADD_SHOPPING_ITEM_FAILURE:
+            return {
+                ...state,
+                shoppingItems: {
+                    ...state.shoppingItems,
+                    loading: false,
+                    error: 'Error In Adding Item'
+                }
+            };
+
         default:
             return state;
     }

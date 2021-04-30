@@ -72,3 +72,33 @@ export function deleteItem(id) {
         dispatch(deleteItemFailure());
     };
 }
+
+
+const addItemRequest = () => {
+    return {
+        type: ADD_SHOPPING_ITEM_REQUEST,
+    };
+};
+
+const addItemSuccess = (itemObj) => {
+    return {
+        type: ADD_SHOPPING_ITEM_SUCCESS,
+        payload: itemObj,
+    };
+};
+
+const addItemFailure = (error) => {
+    return {
+        type: ADD_SHOPPING_ITEM_FAILURE,
+        payload: error,
+    };
+};
+
+export function addItem(itemObj) {
+
+    return (dispatch) => {
+        dispatch(addItemRequest());
+        dispatch(addItemSuccess(itemObj));
+        dispatch(addItemFailure());
+    };
+}
