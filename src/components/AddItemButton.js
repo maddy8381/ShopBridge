@@ -129,7 +129,6 @@ const AddItemButton = (props) => {
                 variant="outlined"
                 color="primary"
                 onClick={handleClickOpen}
-                style={{ float: 'right' }}
             >
                 Add Item
             </Button>

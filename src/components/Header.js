@@ -5,7 +5,6 @@ function Header() {
     return (
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand >SHOP BRIDGE</Navbar.Brand>
-
         </Navbar>
     )
 }
