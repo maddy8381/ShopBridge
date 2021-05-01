@@ -111,7 +111,7 @@ const AddItemButton = (props) => {
             itemDescrErr.shortName = 'Item Description is Too Short';
             isValid = false;
         }
-        else if (form.description.trim().length > 300) {
+        else if (form.description.trim().length > 125) {
             itemDescrErr.longName = 'Item Description is Too Long';
             isValid = false;
         }

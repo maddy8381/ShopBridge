@@ -18,13 +18,15 @@ function Dashboard(props) {
             <AddItemButton />
             <br />
             <hr />
-            {
-                props.shoppingItemsList.length < 1
-                    ? <h1>No Items Found</h1>
-                    : props.shoppingItemsList.map(item => (
-                        <Item key={item.id} item={item} />
-                    ))
-            }
+            <div>
+                {
+                    props.shoppingItemsList.length < 1
+                        ? <h1 style={{ textAlign: 'center' }}>No Items Found</h1>
+                        : props.shoppingItemsList.map(item => (
+                            <Item key={item.id} item={item} />
+                        ))
+                }
+            </div>
         </Container>
     )
 }

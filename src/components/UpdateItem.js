@@ -94,7 +94,7 @@ function UpdateItem(props) {
             itemDescrErr.shortName = 'Item Description is Too Short';
             isValid = false;
         }
-        else if (form.description.trim().length > 300) {
+        else if (form.description.trim().length > 125) {
             itemDescrErr.longName = 'Item Description is Too Long';
             isValid = false;
         }
@@ -108,7 +108,9 @@ function UpdateItem(props) {
 
     return (
         <React.Fragment>
-            <Button className="fa fa-edit pr-1" onClick={handleClickOpen}> Update Item</Button>
+            <Button variant="contained" color="primary" onClick={handleClickOpen} style={{ width: '115px' }}>
+                Update
+            </Button>
             <Dialog
                 open={open}
                 onClose={handleClose}

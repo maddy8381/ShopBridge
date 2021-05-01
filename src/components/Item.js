@@ -15,28 +15,26 @@ function Item(props) {
     }
 
     return (
-        <div>
-            <div className="card card-body bg-light mb-3">
-                <div className="row">
-                    <div className="col-lg-6 col-md-4 col-8">
-                        <h3>{item.name}</h3>
-                        <p>{item.description}</p>
-                        <h3>${item.price}</h3>
-                        <p>{item.dateModified}</p>
-                    </div>
-                    <div className="col-md-2 d-none d-lg-block">
-                        <ul className="list-group">
-                            <li className="list-group-item">
-                                <UpdateItem item={item} />
-                            </li>
-                            <li className="list-group-item">
-                                <Button className="fa fa-edit pr-1" onClick={() => handleDeleteItem(item.id)}> Delete Item</Button>
-                            </li>
-                        </ul>
-                    </div>
+        <div className="col-lg-3 col-md-6" style={{ display: 'inline-block', marginBottom: '15px' }}>
+            <div className="card" style={{ padding: '15px' }}>
+                <h3 style={{ height: '50px' }}>{item.name}</h3>
+                <p style={{ height: '100px' }}>{item.description}</p>
+                <h3 style={{ height: '50px' }}>${item.price}</h3>
+                <p style={{ height: '20px' }}>{item.dateModified}</p>
+
+                <div>
+                    <UpdateItem item={item} />
+                    <Button
+                        style={{ width: '115px', float: 'right' }}
+                        variant="contained"
+                        color="secondary"
+                        onClick={() => handleDeleteItem(item.id)}
+                    >
+                        Delete
+                    </Button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
