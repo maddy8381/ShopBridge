@@ -20,7 +20,7 @@ function Dashboard(props) {
             <div>
                 {
                     props.shoppingItemsList.length < 1
-                        ? <h1 style={{ textAlign: 'center' }}>No Items Found</h1>
+                        ? <h2 style={{ textAlign: 'center' }}>ITEMS NOT FOUND</h2>
                         : props.shoppingItemsList.map(item => (
                             <Item key={item.id} item={item} />
                         ))
