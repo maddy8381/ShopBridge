@@ -13,7 +13,6 @@ function Dashboard(props) {
 
     return (
         <Container fixed>
-            <h1 className="display-4 text-center">SHOPPING ITEMS</h1>
             <br />
             <AddItemButton />
             <br />

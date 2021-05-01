@@ -15,7 +15,7 @@ function Item(props) {
     }
 
     return (
-        <div className="col-lg-3 col-md-6" style={{ display: 'inline-block', marginBottom: '15px' }}>
+        <div className="col-lg-4 col-md-6" style={{ display: 'inline-block', marginBottom: '15px' }}>
             <div className="card" style={{ padding: '15px' }}>
                 <h3 style={{ height: '50px' }}>{item.name}</h3>
                 <p style={{ height: '100px' }}>{item.description}</p>
