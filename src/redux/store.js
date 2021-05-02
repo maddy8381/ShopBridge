@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import siteReducer from "./site/siteReducer";
 
 export const initialStore = {
-    counter: 5,
+    counter: 10,
     shoppingItems: {
         loading: false,
         error: '',
@@ -42,6 +42,41 @@ export const initialStore = {
                 description: 'Cadbury Dairy Milk Silk Roast Almond Chocolate Bar, 55 g',
                 price: '10',
                 dateModified: '19 Jan 2021'
+            },
+            {
+                id: 5,
+                name: 'USB Type-C',
+                description: 'Mistique USB Type-C to 3.5 mm Stereo Audio Jack Adapter for OnePlus One Plus 6T/5/5T /Mi A2 and All USB Type-C Devices (Red & White)',
+                price: '20',
+                dateModified: '11 Jan 2021'
+            },
+            {
+                id: 6,
+                name: 'OnePlus 7T',
+                description: 'OnePlus 7T (Frosted Silver, 8GB RAM, Fluid AMOLED Display, 128GB Storage, 3800mAH Battery)',
+                price: '700',
+                dateModified: '19 Aug 2021'
+            },
+            {
+                id: 7,
+                name: 'Gym Brand',
+                description: 'Xtrim Leather Gym Workout Gloves For Men- Black ( M / L / XL )',
+                price: '20',
+                dateModified: '09 Jan 2021'
+            },
+            {
+                id: 8,
+                name: 'MI Power Bank',
+                description: 'Mi 10000mAH Li-Polymer Power Bank 2i (Black) with 18W Fast Charging',
+                price: '10',
+                dateModified: '22 Aug 2021'
+            },
+            {
+                id: 9,
+                name: 'Samsung Washing Machine',
+                description: 'Samsung 6.2 kg Fully-Automatic Top load Washing Machine (WA62M4100HY/TL, Imperial Silver)',
+                price: '100',
+                dateModified: '19 Apr 2021'
             }
         ]
     }

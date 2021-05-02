@@ -5,6 +5,7 @@ import { Container } from '@material-ui/core'
 import Item from './Item'
 import { fetchShoppingItems } from './../redux/site/siteActions'
 import YearFilter from './YearFilter/YearFilter'
+import Pagination from './Pagination/Pagination'
 
 function Dashboard(props) {
 
@@ -18,7 +19,7 @@ function Dashboard(props) {
         setFilteredYear(selectedYear);
     };
 
-    const filteredItem = props.shoppingItemsList.filter((item) => {
+    const filteredItems = props.shoppingItemsList.filter((item) => {
         let date = item.dateModified;
         date = date.slice(-4);
         return date === filteredYear;
@@ -36,11 +37,14 @@ function Dashboard(props) {
             <hr />
             <div>
                 {
-                    filteredItem < 1
+                    filteredItems < 1
                         ? <h2 style={{ textAlign: 'center' }}>ITEMS NOT FOUND</h2>
-                        : filteredItem.map(item => (
-                            <Item key={item.id} item={item} />
-                        ))
+                        : <Pagination
+                            data={filteredItems}
+                            RenderComponent={Item}
+                            pageLimit={3}
+                            dataLimit={3}
+                        />
                 }
             </div>
         </Container>
