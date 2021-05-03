@@ -32,23 +32,21 @@ function Pagination({ data, RenderComponent, pageLimit, dataLimit }) {
 
     return (
         <div>
-
             <div className="dataContainer">
                 {getPaginatedData().map((d, idx) => (
-                    <RenderComponent key={idx} item={d} />
+                    <RenderComponent key={d.id} item={d} />
                 ))}
             </div>
 
+
             <div className="pagination">
-                {/* previous button */}
                 <button
                     onClick={goToPreviousPage}
                     className={`prev ${currentPage === 1 ? 'disabled' : ''}`}
                 >
                     prev
-                 </button>
+                </button>
 
-                {/* show page numbers */}
                 {getPaginationGroup().map((item, index) => (
                     <button
                         key={index}
@@ -59,7 +57,6 @@ function Pagination({ data, RenderComponent, pageLimit, dataLimit }) {
                     </button>
                 ))}
 
-                {/* next button */}
                 <button
                     onClick={goToNextPage}
                     className={`next ${currentPage === pages ? 'disabled' : ''}`}
